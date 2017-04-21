@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <script src="https://use.typekit.net/ayo7tlf.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+        <link href="./dist/stylesheets/materialize_scss.css" rel="stylesheet">
+        <link href="./dist/stylesheets/home_scss.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="react_menu" class="right hide-on-large-only" style="width: 50px; position: relative; z-index: 20; padding: 20px 15px 0 0; margin-top: 5px;"></div>
+        <nav class="main_nav">
+            <div class="nav-wrapper">
+                <div class="brand-logo"><img src="./src/images/logo.png" alt="" /></div>
+                <!--<a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>-->
+                <ul class="right hide-on-med-and-down">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <!--
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="badges.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                -->
+            </div>
+        </nav>
+        <div class="content">
+            <div class="header_background"></div>
+            <div class="header">
+                <div class="row">
+                                        
+                    <div class="col s12 m4">
+                        <div id="react_logo" class="react_logo"></div>
+                    </div>
+                    <div class="col s12 m8">
+                        <img class="code_design" src="./src/images/code_design_mastermind@3x.png" alt="" />
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="technologies">
+                <h5>TECHNOLOGIES</h5>
+                <div class="row">             
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="Python">
+                        <a href="https://www.python.org/"><img class="python_logo" src="./src/images/python_logo@0.5x.png" border="0" alt="Django" title="Django" /></a>
+                    </div>
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="NodeJS">
+                        <img class="node_logo" src="./src/images/node_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="SQL">
+                        <img class="sql_logo" src="./src/images/postgres_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="MongoDB">
+                        <img class="mongo_logo" src="./src/images/mong_logo2@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="AngularJS">
+                        <img class="angular_logo" src="./src/images/angular_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                    <div class="col s6 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="ReactJS">
+                        <img class="react_logo" src="./src/images/react_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                </div>
+                <!--
+                <div class="row">
+                    <div class="col s4 m2 offset-s2 offset-m4 tooltipped" data-position="top" data-delay="50" data-tooltip="AngularJS">
+                        <img class="angular_logo" src="./src/images/angular_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                    <div class="col s4 m2 tooltipped" data-position="top" data-delay="50" data-tooltip="ReactJS">
+                        <img class="react_logo" src="./src/images/react_logo@0.5x.png" border="0" alt="Django" title="Django" />
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="contact">
+                <div class="row z-depth-5 contact_panel">
+                    <div class="col s12">
+                        <h3>CONTACT ME</h3>
+                        <div class="col s12 m4 contact_info"><h5><i class="fa fa-envelope-square" aria-hidden="true"></i> josh@masterminddesign.io</h5></div>
+                        <div class="col s12 m4 contact_info"><h5><i class="fa fa-github-square" aria-hidden="true"></i> Brownie2023</h5></div>
+                        <div class="col s12 m4 contact_info"><h5><i class="fa fa-bitbucket-square" aria-hidden="true"></i> Brownie2023</h5></div>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                    <input id="last_name" type="text" class="validate">
+                                    <label for="last_name">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Inquiry</label>
+                                    </div>
+                                </div>
+                                <button class="btn waves-effect waves-light submit_button center-align" type="submit" name="action">
+                                    Submit <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+        <script type="text/javascript" src="./dist/app/app.bundle.js"></script>           
+    </body>
+</html>
