@@ -5,7 +5,8 @@ module.exports = {
     app: ["./src/app/main.js"],
     materialize_scss: ["./src/stylesheets/materialize.scss"],
     home_scss: ["./src/stylesheets/home.scss"],
-    about_scss: ["./src/stylesheets/about.scss"]
+    about_scss: ["./src/stylesheets/about.scss"],
+    bulma_scss: ["./src/stylesheets/bulma.scss"]
   },
   output: {
     path: path.join(__dirname, "/dist/app/"),
@@ -24,7 +25,7 @@ module.exports = {
                 test: /\.scss$/,
                 include: /.scss$/,
                 loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: "css-loader!sass-loader" })
-            }
+            },
         ]
     },
     plugins: [
