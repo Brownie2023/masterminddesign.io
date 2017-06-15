@@ -4,6 +4,7 @@
   background-color: #FFF !important;
   @media screen and (max-width: 768px) {
       background: transparent !important;
+      box-shadow: none !important;
   }
   .nav-menu {
     a {
@@ -101,4 +102,46 @@ svg {
 
 .design_block {
   margin-left: -25px;
+}
+
+.footer_image {
+  width: 200px;
+  margin-left: calc(50% - 100px);
+  margin-top: -20px;
+}
+.footer_level {
+  .icon {
+    background-color: #FFF;
+    border-radius: 50%;
+    color: #333 !important;
+    margin: 5px;
+    padding: 1rem;
+  }
+}
+.contact_form {
+  .field {
+    .label {
+      color: white;
+    }
+    input[type="text"] {
+      margin-right: 125px;
+    }
+    textarea {
+      margin-right: 150px;
+    }
+  }
+  .form_send_button {
+    background-color: #2D2170;
+    &:hover {
+      background-color: rgba(45, 33, 112, 0.7);
+    }
+  }
+}
+.footer_message {
+  color: white;
+  margin-bottom: 20px;
+}
+.bottom_footer {
+  margin-top: 25px;
+  margin-bottom: -25px;
 }

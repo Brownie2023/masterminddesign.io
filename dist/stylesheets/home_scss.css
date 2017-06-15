@@ -4,136 +4,12 @@
 h1, h2, h3, h4, h5, p {
   color: #585858; }
 
-.main_nav {
-  background-color: transparent;
-  box-shadow: none;
-  line-height: 40px;
-  padding-top: 25px;
-  z-index: 10;
-  position: relative; }
-  .main_nav img {
-    height: 50px;
-    z-index: 100;
-    position: relative; }
-  .main_nav li.active {
-    background-color: transparent; }
-    .main_nav li.active a {
-      border-bottom: 2px solid white; }
-  .main_nav a {
-    color: white;
-    font-weight: bold;
-    margin-bottom: 5px;
-    z-index: 100;
-    position: relative; }
-    .main_nav a:hover {
-      background-color: transparent;
-      border-bottom: 2px solid white; }
-  .main_nav .side-nav {
-    position: fixed;
-    z-index: 999; }
-
-.content {
-  margin-top: -70px;
-  position: relative; }
-
-.bm-menu-wrap {
-  margin-top: -30px;
-  height: 102% !important;
-  background-color: #585858; }
-  .bm-menu-wrap .bm-morph-shape {
-    height: 102% !important; }
-    .bm-menu-wrap .bm-morph-shape svg {
-      fill: rgba(88, 88, 88, 0.7); }
-  .bm-menu-wrap .bm-menu nav {
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: transparent; }
-    .bm-menu-wrap .bm-menu nav a {
-      background-color: #E25656;
-      padding: 5px 15px 5px 15px;
-      text-align: center;
-      margin-top: 10px; }
-  .bm-menu-wrap .bm-cross-button {
-    margin: 15px 15px 0 0; }
-    .bm-menu-wrap .bm-cross-button img {
-      height: 50px; }
-
-/* label color */
-.input-field label {
-  color: #E25656; }
-
-/* label focus color */
-.input-field input[type=text]:focus + label {
-  color: #E25656; }
-
-/* label underline focus color */
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656;
-  background-color: #ffffb3;
-  margin-top: 5px; }
-
-/* valid color */
-.input-field input[type=text].valid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
-/* invalid color */
-.input-field input[type=text].invalid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
-/* icon prefix focus color */
-.input-field .prefix.active {
-  color: #E25656; }
-
-/* label focus color */
-.input-field input[type=email]:focus + label {
-  color: #E25656; }
-
-/* label underline focus color */
-.input-field input[type=email]:focus {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656;
-  background-color: #ffffb3;
-  margin-top: 5px; }
-
-/* valid color */
-.input-field input[type=email].valid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
-/* invalid color */
-.input-field input[type=email].invalid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
-/* label focus color */
-.input-field textarea:focus + label {
-  color: #E25656 !important; }
-
-/* label underline focus color */
-.input-field textarea:focus {
-  border-bottom: 1px solid #E25656 !important;
-  box-shadow: 0 1px 0 0 #E25656 !important;
-  background-color: #ffffb3;
-  margin-top: 5px; }
-
-/* valid color */
-.input-field textarea.valid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
-/* invalid color */
-.input-field textarea.invalid {
-  border-bottom: 1px solid #E25656;
-  box-shadow: 0 1px 0 0 #E25656; }
-
 .nav {
   background-color: #FFF !important; }
   @media screen and (max-width: 768px) {
     .nav {
-      background: transparent !important; } }
+      background: transparent !important;
+      box-shadow: none !important; } }
   .nav .nav-menu a {
     color: #333 !important; }
   .nav .nav-menu a:hover {
@@ -211,3 +87,37 @@ svg {
 
 .design_block {
   margin-left: -25px; }
+
+.footer_image {
+  width: 200px;
+  margin-left: calc(50% - 100px);
+  margin-top: -20px; }
+
+.footer_level .icon {
+  background-color: #FFF;
+  border-radius: 50%;
+  color: #333 !important;
+  margin: 5px;
+  padding: 1rem; }
+
+.contact_form .field .label {
+  color: white; }
+
+.contact_form .field input[type="text"] {
+  margin-right: 125px; }
+
+.contact_form .field textarea {
+  margin-right: 150px; }
+
+.contact_form .form_send_button {
+  background-color: #2D2170; }
+  .contact_form .form_send_button:hover {
+    background-color: rgba(45, 33, 112, 0.7); }
+
+.footer_message {
+  color: white;
+  margin-bottom: 20px; }
+
+.bottom_footer {
+  margin-top: 25px;
+  margin-bottom: -25px; }
