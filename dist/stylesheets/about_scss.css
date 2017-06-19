@@ -4,6 +4,12 @@
 h1, h2, h3, h4, h5, p {
   color: #585858; }
 
+#contact form .notification.is-danger h1 {
+  color: white !important; }
+
+#contact form .notification.is-success h1 {
+  color: white !important; }
+
 .about_banner {
   background-color: #E25656;
   background-image: url("/src/images/mastermind_pattern2.png");

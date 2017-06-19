@@ -10951,10 +10951,15 @@ var _menu = __webpack_require__(108);
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _contact_form = __webpack_require__(284);
+
+var _contact_form2 = _interopRequireDefault(_contact_form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //ReactDOM.render(<Menu />, document.getElementById('react_menu'));
 _reactDom2.default.render(_react2.default.createElement(_logo2.default, null), document.getElementById('react_logo'));
+_reactDom2.default.render(_react2.default.createElement(_contact_form2.default, null), document.getElementById('contact'));
 
 /***/ }),
 /* 107 */
@@ -35582,6 +35587,356 @@ module.exports = g;
 
 module.exports = __webpack_require__(106);
 
+
+/***/ }),
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(9);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactForm = function (_React$Component) {
+    _inherits(ContactForm, _React$Component);
+
+    function ContactForm(props) {
+        _classCallCheck(this, ContactForm);
+
+        var _this = _possibleConstructorReturn(this, (ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).call(this, props));
+
+        _this.state = {
+            full_name: '',
+            email: '',
+            message: '',
+            robot: null,
+            post_message: { value: "", message: "" }
+        };
+
+        _this.handleInputChange = _this.handleInputChange.bind(_this);
+        _this.submitContactForm = _this.submitContactForm.bind(_this);
+        _this.setPostMessage = _this.setPostMessage.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(ContactForm, [{
+        key: 'handleInputChange',
+        value: function handleInputChange(e) {
+            var target = e.target;
+            var value = target.type === 'checkbox' ? target.checked : target.value;
+            var name = target.name;
+
+            this.setState(_defineProperty({}, name, value));
+        }
+    }, {
+        key: 'setPostMessage',
+        value: function setPostMessage(val, msg) {
+            this.setState({
+                post_message: { value: val, message: msg }
+            });
+        }
+    }, {
+        key: 'submitContactForm',
+        value: function submitContactForm(e) {
+            var self;
+            e.preventDefault();
+            self = this;
+            if (this.state.robot === "true") this.state.robot = true;
+            if (this.state.robot === "false") this.state.robot = false;
+            // Submit form via jQuery/AJAX
+            var data = {
+                name: this.state.full_name,
+                email: this.state.email,
+                message: this.state.message,
+                robot: this.state.robot
+            };
+            $.ajax({
+                type: 'POST',
+                contentType: "application/json",
+                url: 'http://127.0.0.1:5000/api/v1/contact',
+                data: JSON.stringify(data),
+                beforeSend: function beforeSend() {
+                    self.setPostMessage("Loading", "Trying to send your message");
+                }
+            }).done(function (data) {
+                var return_data = data;
+                self.setPostMessage(data.value, data.message);
+            }).fail(function (jqXhr) {
+                self.setPostMessage("Error", "Something Went Wrong");
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'form',
+                { className: 'contact_form', onSubmit: this.submitContactForm },
+                _react2.default.createElement(
+                    'h2',
+                    { className: 'title has-text-centered' },
+                    'Contact Me'
+                ),
+                _react2.default.createElement(SubmitMessage, { postMessageValProp: this.state.post_message.value, postMessageMsgProp: this.state.post_message.message }),
+                _react2.default.createElement(TextInput, { labelProp: 'Name*', nameProp: 'full_name', iconProp: 'fa fa-user', stateProp: this.state.full_name, updateStateProp: this.handleInputChange }),
+                _react2.default.createElement(TextInput, { labelProp: 'Email*', nameProp: 'email', iconProp: 'fa fa-envelope', stateProp: this.state.email, updateStateProp: this.handleInputChange }),
+                _react2.default.createElement(TextAreaInput, { labelProp: 'Message*', nameProp: 'message', stateProp: this.state.message, updateStateProp: this.handleInputChange }),
+                _react2.default.createElement(RobotRadios, { labelProp: 'Are You A Robot?*', nameProp: 'robot', stateProp: this.state.robot, updateStateProp: this.handleInputChange }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field is-horizontal' },
+                    _react2.default.createElement('div', { className: 'field-label' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'field-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'field' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'control' },
+                                _react2.default.createElement('input', { type: 'submit', value: 'Send Message', className: 'button is-primary form_send_button' })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ContactForm;
+}(_react2.default.Component);
+
+var TextInput = function (_React$Component2) {
+    _inherits(TextInput, _React$Component2);
+
+    function TextInput() {
+        _classCallCheck(this, TextInput);
+
+        return _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).apply(this, arguments));
+    }
+
+    _createClass(TextInput, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'field is-horizontal' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-label' },
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'label' },
+                        this.props.labelProp
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-body' },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'control has-icons-left' },
+                        _react2.default.createElement('input', { className: 'input', type: 'text', name: this.props.nameProp, placeholder: this.props.labelProp, value: this.props.stateProp, onChange: this.props.updateStateProp }),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'icon is-small is-left' },
+                            _react2.default.createElement('i', { className: this.props.iconProp })
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TextInput;
+}(_react2.default.Component);
+
+var TextAreaInput = function (_React$Component3) {
+    _inherits(TextAreaInput, _React$Component3);
+
+    function TextAreaInput() {
+        _classCallCheck(this, TextAreaInput);
+
+        return _possibleConstructorReturn(this, (TextAreaInput.__proto__ || Object.getPrototypeOf(TextAreaInput)).apply(this, arguments));
+    }
+
+    _createClass(TextAreaInput, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'field is-horizontal' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-label' },
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'label' },
+                        this.props.labelProp
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-body' },
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'control' },
+                        _react2.default.createElement('textarea', { className: 'textarea', name: this.props.nameProp, placeholder: this.props.labelProp, value: this.props.stateProp, onChange: this.props.updateStateProp })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TextAreaInput;
+}(_react2.default.Component);
+
+var RobotRadios = function (_React$Component4) {
+    _inherits(RobotRadios, _React$Component4);
+
+    function RobotRadios() {
+        _classCallCheck(this, RobotRadios);
+
+        return _possibleConstructorReturn(this, (RobotRadios.__proto__ || Object.getPrototypeOf(RobotRadios)).apply(this, arguments));
+    }
+
+    _createClass(RobotRadios, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'field is-horizontal' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-label' },
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'label' },
+                        this.props.labelProp
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'field-body' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'field is-narrow' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'control' },
+                            _react2.default.createElement(
+                                'label',
+                                { className: 'radio' },
+                                _react2.default.createElement('input', { type: 'radio', name: this.props.nameProp, value: true, onChange: this.props.updateStateProp }),
+                                'Yes'
+                            ),
+                            _react2.default.createElement(
+                                'label',
+                                { className: 'radio' },
+                                _react2.default.createElement('input', { type: 'radio', name: this.props.nameProp, value: false, onChange: this.props.updateStateProp }),
+                                'No (This is the correct answer)'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return RobotRadios;
+}(_react2.default.Component);
+
+var SubmitMessage = function (_React$Component5) {
+    _inherits(SubmitMessage, _React$Component5);
+
+    function SubmitMessage() {
+        _classCallCheck(this, SubmitMessage);
+
+        return _possibleConstructorReturn(this, (SubmitMessage.__proto__ || Object.getPrototypeOf(SubmitMessage)).apply(this, arguments));
+    }
+
+    _createClass(SubmitMessage, [{
+        key: 'render',
+        value: function render() {
+            var MessageVal = this.props.postMessageValProp;
+            if (MessageVal == "Error") {
+                return _react2.default.createElement(Alert, { alertClass: 'notification is-danger', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
+            }if (MessageVal == "Success") {
+                return _react2.default.createElement(Alert, { alertClass: 'notification is-success', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
+            }if (MessageVal == "Loading") {
+                return _react2.default.createElement(Alert, { alertClass: 'notification is-warning', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
+            } else {
+                return null;
+            }
+        }
+    }]);
+
+    return SubmitMessage;
+}(_react2.default.Component);
+
+var Alert = function (_React$Component6) {
+    _inherits(Alert, _React$Component6);
+
+    function Alert() {
+        _classCallCheck(this, Alert);
+
+        return _possibleConstructorReturn(this, (Alert.__proto__ || Object.getPrototypeOf(Alert)).apply(this, arguments));
+    }
+
+    _createClass(Alert, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: this.props.alertClass },
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    this.props.alertVal,
+                    ': ',
+                    this.props.alertMsg
+                )
+            );
+        }
+    }]);
+
+    return Alert;
+}(_react2.default.Component);
+
+exports.default = ContactForm;
 
 /***/ })
 /******/ ]);
