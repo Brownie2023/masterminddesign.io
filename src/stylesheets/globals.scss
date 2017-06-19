@@ -8,3 +8,18 @@ $red: #E25656;
 h1, h2, h3, h4, h5, p {
     color: $black;
 }
+
+#contact {
+    form {
+        .notification.is-danger {
+            h1 {
+                color: white !important;
+            }
+        }
+        .notification.is-success {
+            h1 {
+                color: white !important;
+            }
+        }
+    }
+}
