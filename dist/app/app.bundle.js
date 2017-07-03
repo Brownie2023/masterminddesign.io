@@ -11045,7 +11045,7 @@ var ContactForm = function (_React$Component) {
             $.ajax({
                 type: 'POST',
                 contentType: "application/json",
-                url: 'http://localhost:8000/api/v1/contact',
+                url: 'http://45.58.39.68:8000/api/v1/contact',
                 data: JSON.stringify(data),
                 beforeSend: function beforeSend() {
                     self.setPostMessage("Loading", "Trying to send your message");
