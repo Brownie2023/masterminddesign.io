@@ -51,7 +51,7 @@ class ContactForm extends React.Component {
        $.ajax({
          type: 'POST',
          contentType: "application/json",
-         url: 'http://127.0.0.1:5000/api/v1/contact',
+         url: 'http://localhost:5000/api/v1/contact',
          data: JSON.stringify(data),
          beforeSend: function() {
              self.setPostMessage("Loading", "Trying to send your message");
