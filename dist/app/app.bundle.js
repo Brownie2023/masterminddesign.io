@@ -10997,9 +10997,9 @@ var ContactForm = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).call(this, props));
 
         _this.state = {
-            full_name: '',
-            email: '',
-            message: '',
+            full_name: "",
+            email: "",
+            message: "",
             robot: null,
             post_message: { value: "", message: "" }
         };
@@ -11007,28 +11007,27 @@ var ContactForm = function (_React$Component) {
         _this.handleInputChange = _this.handleInputChange.bind(_this);
         _this.submitContactForm = _this.submitContactForm.bind(_this);
         _this.setPostMessage = _this.setPostMessage.bind(_this);
-
         return _this;
     }
 
     _createClass(ContactForm, [{
-        key: 'handleInputChange',
+        key: "handleInputChange",
         value: function handleInputChange(e) {
             var target = e.target;
-            var value = target.type === 'checkbox' ? target.checked : target.value;
+            var value = target.type === "checkbox" ? target.checked : target.value;
             var name = target.name;
 
             this.setState(_defineProperty({}, name, value));
         }
     }, {
-        key: 'setPostMessage',
+        key: "setPostMessage",
         value: function setPostMessage(val, msg) {
             this.setState({
                 post_message: { value: val, message: msg }
             });
         }
     }, {
-        key: 'submitContactForm',
+        key: "submitContactForm",
         value: function submitContactForm(e) {
             var self;
             e.preventDefault();
@@ -11043,9 +11042,9 @@ var ContactForm = function (_React$Component) {
                 robot: this.state.robot
             };
             $.ajax({
-                type: 'POST',
+                type: "POST",
                 contentType: "application/json",
-                url: 'http://localhost:8000/api/v1/contact',
+                url: "https://mastermind-api.azurewebsites.net/api/contact",
                 data: JSON.stringify(data),
                 beforeSend: function beforeSend() {
                     self.setPostMessage("Loading", "Trying to send your message");
@@ -11058,35 +11057,64 @@ var ContactForm = function (_React$Component) {
             });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'form',
-                { className: 'contact_form', onSubmit: this.submitContactForm },
+                "form",
+                { className: "contact_form", onSubmit: this.submitContactForm },
                 _react2.default.createElement(
-                    'h2',
-                    { className: 'title has-text-centered' },
-                    'Contact Me'
+                    "h2",
+                    { className: "title has-text-centered" },
+                    "Contact Me"
                 ),
-                _react2.default.createElement(SubmitMessage, { postMessageValProp: this.state.post_message.value, postMessageMsgProp: this.state.post_message.message }),
-                _react2.default.createElement(TextInput, { labelProp: 'Name*', nameProp: 'full_name', iconProp: 'fa fa-user', stateProp: this.state.full_name, updateStateProp: this.handleInputChange }),
-                _react2.default.createElement(TextInput, { labelProp: 'Email*', nameProp: 'email', iconProp: 'fa fa-envelope', stateProp: this.state.email, updateStateProp: this.handleInputChange }),
-                _react2.default.createElement(TextAreaInput, { labelProp: 'Message*', nameProp: 'message', stateProp: this.state.message, updateStateProp: this.handleInputChange }),
-                _react2.default.createElement(RobotRadios, { labelProp: 'Are You A Robot?*', nameProp: 'robot', stateProp: this.state.robot, updateStateProp: this.handleInputChange }),
+                _react2.default.createElement(SubmitMessage, {
+                    postMessageValProp: this.state.post_message.value,
+                    postMessageMsgProp: this.state.post_message.message
+                }),
+                _react2.default.createElement(TextInput, {
+                    labelProp: "Name*",
+                    nameProp: "full_name",
+                    iconProp: "fa fa-user",
+                    stateProp: this.state.full_name,
+                    updateStateProp: this.handleInputChange
+                }),
+                _react2.default.createElement(TextInput, {
+                    labelProp: "Email*",
+                    nameProp: "email",
+                    iconProp: "fa fa-envelope",
+                    stateProp: this.state.email,
+                    updateStateProp: this.handleInputChange
+                }),
+                _react2.default.createElement(TextAreaInput, {
+                    labelProp: "Message*",
+                    nameProp: "message",
+                    stateProp: this.state.message,
+                    updateStateProp: this.handleInputChange
+                }),
+                _react2.default.createElement(RobotRadios, {
+                    labelProp: "Are You A Robot?*",
+                    nameProp: "robot",
+                    stateProp: this.state.robot,
+                    updateStateProp: this.handleInputChange
+                }),
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field is-horizontal' },
-                    _react2.default.createElement('div', { className: 'field-label' }),
+                    "div",
+                    { className: "field is-horizontal" },
+                    _react2.default.createElement("div", { className: "field-label" }),
                     _react2.default.createElement(
-                        'div',
-                        { className: 'field-body' },
+                        "div",
+                        { className: "field-body" },
                         _react2.default.createElement(
-                            'div',
-                            { className: 'field' },
+                            "div",
+                            { className: "field" },
                             _react2.default.createElement(
-                                'div',
-                                { className: 'control' },
-                                _react2.default.createElement('input', { type: 'submit', value: 'Send Message', className: 'button is-primary form_send_button' })
+                                "div",
+                                { className: "control" },
+                                _react2.default.createElement("input", {
+                                    type: "submit",
+                                    value: "Send Message",
+                                    className: "button is-primary form_send_button"
+                                })
                             )
                         )
                     )
@@ -11108,31 +11136,38 @@ var TextInput = function (_React$Component2) {
     }
 
     _createClass(TextInput, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { className: 'field is-horizontal' },
+                "div",
+                { className: "field is-horizontal" },
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-label' },
+                    "div",
+                    { className: "field-label" },
                     _react2.default.createElement(
-                        'label',
-                        { className: 'label' },
+                        "label",
+                        { className: "label" },
                         this.props.labelProp
                     )
                 ),
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-body' },
+                    "div",
+                    { className: "field-body" },
                     _react2.default.createElement(
-                        'p',
-                        { className: 'control has-icons-left' },
-                        _react2.default.createElement('input', { className: 'input', type: 'text', name: this.props.nameProp, placeholder: this.props.labelProp, value: this.props.stateProp, onChange: this.props.updateStateProp }),
+                        "p",
+                        { className: "control has-icons-left" },
+                        _react2.default.createElement("input", {
+                            className: "input",
+                            type: "text",
+                            name: this.props.nameProp,
+                            placeholder: this.props.labelProp,
+                            value: this.props.stateProp,
+                            onChange: this.props.updateStateProp
+                        }),
                         _react2.default.createElement(
-                            'span',
-                            { className: 'icon is-small is-left' },
-                            _react2.default.createElement('i', { className: this.props.iconProp })
+                            "span",
+                            { className: "icon is-small is-left" },
+                            _react2.default.createElement("i", { className: this.props.iconProp })
                         )
                     )
                 )
@@ -11153,27 +11188,33 @@ var TextAreaInput = function (_React$Component3) {
     }
 
     _createClass(TextAreaInput, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { className: 'field is-horizontal' },
+                "div",
+                { className: "field is-horizontal" },
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-label' },
+                    "div",
+                    { className: "field-label" },
                     _react2.default.createElement(
-                        'label',
-                        { className: 'label' },
+                        "label",
+                        { className: "label" },
                         this.props.labelProp
                     )
                 ),
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-body' },
+                    "div",
+                    { className: "field-body" },
                     _react2.default.createElement(
-                        'p',
-                        { className: 'control' },
-                        _react2.default.createElement('textarea', { className: 'textarea', name: this.props.nameProp, placeholder: this.props.labelProp, value: this.props.stateProp, onChange: this.props.updateStateProp })
+                        "p",
+                        { className: "control" },
+                        _react2.default.createElement("textarea", {
+                            className: "textarea",
+                            name: this.props.nameProp,
+                            placeholder: this.props.labelProp,
+                            value: this.props.stateProp,
+                            onChange: this.props.updateStateProp
+                        })
                     )
                 )
             );
@@ -11193,40 +11234,50 @@ var RobotRadios = function (_React$Component4) {
     }
 
     _createClass(RobotRadios, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { className: 'field is-horizontal' },
+                "div",
+                { className: "field is-horizontal" },
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-label' },
+                    "div",
+                    { className: "field-label" },
                     _react2.default.createElement(
-                        'label',
-                        { className: 'label' },
+                        "label",
+                        { className: "label" },
                         this.props.labelProp
                     )
                 ),
                 _react2.default.createElement(
-                    'div',
-                    { className: 'field-body' },
+                    "div",
+                    { className: "field-body" },
                     _react2.default.createElement(
-                        'div',
-                        { className: 'field is-narrow' },
+                        "div",
+                        { className: "field is-narrow" },
                         _react2.default.createElement(
-                            'div',
-                            { className: 'control' },
+                            "div",
+                            { className: "control" },
                             _react2.default.createElement(
-                                'label',
-                                { className: 'radio' },
-                                _react2.default.createElement('input', { type: 'radio', name: this.props.nameProp, value: true, onChange: this.props.updateStateProp }),
-                                'Yes'
+                                "label",
+                                { className: "radio" },
+                                _react2.default.createElement("input", {
+                                    type: "radio",
+                                    name: this.props.nameProp,
+                                    value: true,
+                                    onChange: this.props.updateStateProp
+                                }),
+                                "Yes"
                             ),
                             _react2.default.createElement(
-                                'label',
-                                { className: 'radio' },
-                                _react2.default.createElement('input', { type: 'radio', name: this.props.nameProp, value: false, onChange: this.props.updateStateProp }),
-                                'No (This is the correct answer)'
+                                "label",
+                                { className: "radio" },
+                                _react2.default.createElement("input", {
+                                    type: "radio",
+                                    name: this.props.nameProp,
+                                    value: false,
+                                    onChange: this.props.updateStateProp
+                                }),
+                                "No (This is the correct answer)"
                             )
                         )
                     )
@@ -11248,15 +11299,29 @@ var SubmitMessage = function (_React$Component5) {
     }
 
     _createClass(SubmitMessage, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var MessageVal = this.props.postMessageValProp;
             if (MessageVal == "Error") {
-                return _react2.default.createElement(Alert, { alertClass: 'notification is-danger', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
-            }if (MessageVal == "Success") {
-                return _react2.default.createElement(Alert, { alertClass: 'notification is-success', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
-            }if (MessageVal == "Loading") {
-                return _react2.default.createElement(Alert, { alertClass: 'notification is-warning', alertVal: this.props.postMessageValProp, alertMsg: this.props.postMessageMsgProp });
+                return _react2.default.createElement(Alert, {
+                    alertClass: "notification is-danger",
+                    alertVal: this.props.postMessageValProp,
+                    alertMsg: this.props.postMessageMsgProp
+                });
+            }
+            if (MessageVal == "Success") {
+                return _react2.default.createElement(Alert, {
+                    alertClass: "notification is-success",
+                    alertVal: this.props.postMessageValProp,
+                    alertMsg: this.props.postMessageMsgProp
+                });
+            }
+            if (MessageVal == "Loading") {
+                return _react2.default.createElement(Alert, {
+                    alertClass: "notification is-warning",
+                    alertVal: this.props.postMessageValProp,
+                    alertMsg: this.props.postMessageMsgProp
+                });
             } else {
                 return null;
             }
@@ -11276,16 +11341,16 @@ var Alert = function (_React$Component6) {
     }
 
     _createClass(Alert, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
+                "div",
                 { className: this.props.alertClass },
                 _react2.default.createElement(
-                    'h1',
+                    "h1",
                     null,
                     this.props.alertVal,
-                    ': ',
+                    ": ",
                     this.props.alertMsg
                 )
             );
