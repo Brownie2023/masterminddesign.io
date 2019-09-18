@@ -1,0 +1,50 @@
+.profile {
+  width: 24vw;
+  padding: 4vh 3vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: rgb(20, 20, 20);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  position: fixed;
+  color: #fff !important;
+  .profile-image {
+    img {
+      width: 231px;
+      height: 180px;
+      min-width: 231px;
+      min-height: 180px;
+      max-width: 231px;
+      max-height: 180px;
+      border-radius: 5px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 25px;
+    }
+  }
+  .about {
+    font-size: 18px;
+    span {
+      display: block;
+      padding-bottom: 10px;
+      a {
+        color: #fff;
+        text-decoration-line: none;
+      }
+      i {
+        padding-right: 15px;
+      }
+    }
+    .socials {
+      margin-top: 15px;
+      span {
+        padding-right: 15px;
+        display: inline;
+      }
+    }
+  }
+}
