@@ -1,0 +1,29 @@
+.work {
+  min-height: 100vh;
+  .projects {
+    .row {
+      margin-bottom: 25px;
+    }
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration-line: none;
+      }
+    }
+    .card {
+      background-color: rgb(20, 20, 20);
+      &:hover {
+        margin-top: -2.5px;
+      }
+      .card-text {
+        span {
+          font-size: 12px;
+          float: right;
+          i {
+            padding-right: 7px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,35 +1,77 @@
-var path = require("path");
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-module.exports = {
-  entry: {
-    app: ["./src/app/main.js"],
-    materialize_scss: ["./src/stylesheets/materialize.scss"],
-    home_scss: ["./src/stylesheets/home.scss"],
-    about_scss: ["./src/stylesheets/about.scss"],
-    bulma_scss: ["./src/stylesheets/bulma.scss"]
-  },
-  output: {
-    path: path.join(__dirname, "/dist/app/"),
-    filename: "[name].bundle.js"
-  },
-    module: {
-        loaders: [
-            {
-                exclude: /(node_modules)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
-            },
-            {
-                test: /\.scss$/,
-                include: /.scss$/,
-                loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: "css-loader!sass-loader" })
-            },
-        ]
+const webpack = require("webpack");
+const path = require("path");
+
+module.exports = env => {
+  let environment = env.ENV === "dev" ? "development" : "production";
+  return {
+    entry: {
+      "dist/bundle.js": "./src/index.js"
     },
-    plugins: [
-        new ExtractTextPlugin("../stylesheets/[name].css")
-    ],
-    watch: true
+    output: {
+      path: path.resolve(__dirname, ""),
+      filename: "[name]"
+    },
+    plugins: [new webpack.HotModuleReplacementPlugin()],
+    mode: environment,
+    devtool: environment === "development" ? "eval-source-map" : "source-map",
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          use: ["babel-loader"],
+          include: path.resolve(__dirname, "src"),
+          exclude: /node_modules/
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: "style-loader"
+            },
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 2,
+                sourceMap: true
+              }
+            },
+            {
+              loader: "sass-loader"
+            }
+          ]
+        },
+        {
+          test: /\.css$/,
+          use: [
+            {
+              loader: "style-loader"
+            },
+            {
+              loader: "css-loader",
+              options: {
+                modules: true
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+          loader: "url-loader?limit=100000"
+        }
+      ]
+    },
+    devServer: {
+      publicPath: "/",
+      contentBase: path.join(__dirname, "/"),
+      stats: "minimal",
+      host: "localhost",
+      port: "3000",
+      open: true,
+      hot: true,
+      watchContentBase: true,
+      historyApiFallback: {
+        index: "index.html"
+      }
+    }
+  };
 };
