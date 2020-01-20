@@ -1,23 +1,26 @@
 .profile {
-    width: 32vw;
-    padding: 4vh 4vw;
-    height: 100vh;
+    width: 240px;
+    right: 70%;
+    //padding: 4vh 4vw;
+    //height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: left;
-    background: rgb(20, 20, 20);
+    //background: rgb(20, 20, 20);
     background-size: cover !important;
     background-repeat: no-repeat;
-    position: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     //color: #fff !important;
     .profile-image {
         svg {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: -15px;
+            margin-bottom: 10px;
+            // display: block;
+            // margin-left: auto;
+            // margin-right: auto;
+            // margin-bottom: -15px;
         }
     }
     .username {
@@ -44,9 +47,16 @@
         }
     }
     @media only screen and (max-width: 1020px) {
-        width: 100vw;
-        height: 300px;
-        display: inline-block;
-        position: relative;
+        position: static;
+        top: 10px;
+        width: auto;
+        margin: 40px 24px 16px;
+        padding-bottom: 16px;
+        .profile-image {
+            svg {
+                top: -33px;
+            }
+        }
+        //display: inline-block;
     }
 }

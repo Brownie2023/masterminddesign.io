@@ -16,6 +16,15 @@ class Profile extends Component {
     render() {
         return (
             <div className="profile">
+                <svg
+                    id="clip-paths"
+                    width="0"
+                    height="0"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g></g>
+                </svg>
                 <div className="profile-image" id="header-logo">
                     <svg
                         id="logo"
