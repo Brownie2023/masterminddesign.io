@@ -131,7 +131,7 @@ function cloneAndStripeElement(element, clipPathName, parent) {
         height: Math.ceil(box.height),
         display: "none",
         pointerEvents: "none",
-        background: "rgb(20, 20, 20)",
+        background: "#0a0a0a",
         fontSize: style.fontSize,
         fontFamily: style.fontFamily,
         color: style.color,

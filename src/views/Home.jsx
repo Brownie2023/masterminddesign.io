@@ -23,15 +23,6 @@ class Home extends Component {
             <div id="page">
                 <Profile2 />
                 <Display>
-                    <svg
-                        id="clip-paths"
-                        width="0"
-                        height="0"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <g></g>
-                    </svg>
                     <Switch>
                         <Route exact path="/" render={() => <Work />} />
                         <Route exact path="/fithub" render={() => <FitHub />} />
